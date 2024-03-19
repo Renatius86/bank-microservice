@@ -1,0 +1,15 @@
+version: '3'
+services:
+  bank-microservice:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: bank_microservice
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
